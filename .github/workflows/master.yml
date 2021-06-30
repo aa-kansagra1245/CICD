@@ -1,4 +1,4 @@
-name: .NET
+name: CI-CD_Master
 
 on:
   push:
