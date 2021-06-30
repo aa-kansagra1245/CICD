@@ -1,0 +1,30 @@
+name: CI-CD_Dev
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Publish
+      run: dotnet publish
+    - name: Publish Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: Project_CI-CD
+        path: /home/runner/work/CI-CD/CI-CD/bin/Debug/netcoreapp3.1/publish/
