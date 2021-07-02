@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: Project_CI-CD
-        path: /home/runner/work/CI-CD/CI-CD/bin/Debug/netcoreapp3.1/publish/
+        path: /home/runner/work/CI-CD/CI-CD/bin/Release/netcoreapp3.1/publish/
